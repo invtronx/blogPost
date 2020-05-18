@@ -15,8 +15,8 @@ const bloggerRouter = require('./routes/blogger');
 const app = express();
 
 // configure mongoose connection
-
-const mongoDB = 'mongodb+srv://adminronx:passronx@cluster0-tomy4.mongodb.net/blogPost?retryWrites=true&w=majority';
+const dev_db_url = 'mongodb+srv://adminronx:passronx@cluster0-tomy4.mongodb.net/blogPost?retryWrites=true&w=majority';
+const mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Mongo DB Connection Error:'));
