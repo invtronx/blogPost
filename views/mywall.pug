@@ -1,0 +1,49 @@
+extends general
+
+block content
+	
+	h1 Wall
+
+	br
+	div
+		span Name:&nbsp;
+		span 
+			em=blogger.name
+	
+	div 
+		span Username:&nbsp;
+		span.text-primary 
+			em=blogger.username
+	
+	br
+
+	div.wallBio
+		span Bio:&nbsp
+		span=blogger.bio
+
+	br
+	
+	div
+		a.btn.btn-outline-danger.btn-sm(href='/blogger/wall/edit' role='button' aria-pressed='true') Edit Information
+	
+	br
+
+	h5.bodyFont Your Blogs
+
+	if blogger.blogs.length > 0
+		div.list-group
+			each blog in blogger.blogs
+				a.list-group-item.list-group-item-action(href=blog.url)
+					p.d-flex.flex-row.justify-content-between
+						span=blog.title
+					span
+						button.btn.btn-success.btn-sm.margin-r-sm(type='button')
+							span Likes &nbsp;
+							span.badge.badge-light=blog.likes
+						button.btn.btn-danger.btn-sm(type='button')
+							span Dislikes &nbsp;
+							span.badge.badge-light=blog.dislikes
+						sub.text-secondary.float-right=blog.relativePostTime + ' ago'
+
+	else
+		p.text-secondary The blogger has not posted any blogs yet.

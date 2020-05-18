@@ -1,0 +1,11 @@
+extends general
+
+block content
+	
+	h2 Notifications
+
+	div.list-group
+		each noti in notifs
+			a.list-group-item.list-group-item-action(href=noti.blogUrl)
+				sup.float-right=noti.relativePostTime + ' ago'
+				span=noti.generateMessage

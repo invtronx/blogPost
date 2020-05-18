@@ -1,0 +1,40 @@
+extends general
+
+block content
+	
+	h3.bodyFont=blogger.name
+	p.text-info=blogger.username
+
+	span.meta#metaBlogger(bloggerId=blogger._id)
+
+	p=blogger.bio
+
+	button.btn.btn-outline-primary.btn-sm#starBtn(type='button')
+		span Stars &nbsp;
+		span.badge.badge-primary#starCount=blogger.stars
+
+	br
+	br
+
+	h5.bodyFont='Blogs By ' + blogger.name
+	
+	if blogger.blogs.length > 0
+		div.list-group
+			each blog in blogger.blogs
+				a.list-group-item.list-group-item-action(href=blog.url)
+					p.d-flex.flex-row.justify-content-between
+						span=blog.title
+					span
+						button.btn.btn-success.btn-sm.margin-r-sm(type='button')
+							span Likes &nbsp;
+							span.badge.badge-light=blog.likes
+						button.btn.btn-danger.btn-sm(type='button')
+							span Dislikes &nbsp;
+							span.badge.badge-light=blog.dislikes
+						sub.text-secondary.float-right=blog.relativePostTime + ' ago'
+
+	else
+		p.text-secondary The blogger has not posted any blogs yet.
+	
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js')
+	script(src='/javascripts/bloggerDetail.js' defer)

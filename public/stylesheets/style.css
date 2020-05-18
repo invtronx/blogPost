@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,600;1,600&family=Raleway:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@700&display=swap');
+
+body {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400
+}
+.bodyFont {
+	font-family: 'Raleway', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Alegreya', serif;
+}
+.sidebar-nav {
+	padding-top: 16px;
+}
+.core {
+	padding: 24px 8px;
+}
+.logo {
+	font-family: 'Lora', serif;
+	padding-top: 16px;
+	text-align: center;
+}
+.errorField {
+	margin: 16px 0;
+}
+.hallListItem {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+}
+.wallBio {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	align-items: center;
+}
+.margin-none {
+	margin-bottom: 0px;
+}
+.margin-r-sm {
+	margin-right: 12px;
+}
+.margin-b-sm {
+	margin-bottom: 12px;
+}
+.margin-l-xsm {
+	margin-left: 6px;
+}
+body::-webkit-scrollbar {
+	display: none;
+}
+.display-none {
+	display: none;
+}

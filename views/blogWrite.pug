@@ -1,0 +1,35 @@
+extends general
+
+block content
+	
+	h3 Write a Blog
+
+	form(method='POST' action='')
+		
+		div.form-group
+			label(for='title') Title
+			input.form-control#title(type='text' placeholder='Is antimatter technology the future?' name='title' autocomplete='off' value=(blog ? blog.title : ''))
+
+		div.form-group
+			label(for='blogBody') Body
+			textarea.form-control#blogBody(name='blogBody' spellcheck=true rows='12')=(blog ? blog.body : '')
+
+		button.btn.btn-outline-primary(type='submit') Post
+	
+	if errors
+		div.errorField
+			button.btn.btn-outline-danger.btn-sm(type='button' data-toggle='modal' data-target='#errorModal') View Errors
+			div.modal.fade#errorModal(tabindex='-1' role='dialog' aria-hidden='true')
+				div.modal-dialog.modal-dialog-centered(role='document')
+					div.modal-content
+						div.modal-header
+							h5.modal-title Errors
+						div
+						div.modal-body
+							ul.list-group.list-group-flush
+								each error in errors
+									li.list-group-item!=error.msg
+						div.modal-footer
+							button.btn.btn-primary(type='button' data-dismiss='modal') Dismiss
+
+

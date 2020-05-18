@@ -1,0 +1,61 @@
+extends general
+
+block content
+	
+	h1=blog.title
+	
+	div.row
+		div.col
+			p.font-weight-bold.margin-none=blog.author.name
+			p.text-primary=blog.author.username
+		div.col.text-right
+			p.text-secondary.margin-none=blog.formattedPostTime
+			p.text-secondary=blog.relativePostTime + ' ago'
+
+			if blog.author.user == userId
+				a.float-right.btn.btn-outline-danger.btn-sm(href='/blog/edit/' + blog._id) Edit
+
+	p.text-break=blog.body
+
+	span.meta#metaBlogger(bloggerId=blog.author._id)
+	span.meta#metaBlog(blogId=blog._id)
+	span.meta#metaShareText(data-share-text=blog.fmt)
+
+	div.row.margin-b-sm
+		div.col
+			button.btn.btn-outline-success.btn-sm.margin-r-sm#likeBtn
+				span Like&nbsp; 
+				span.badge.badge-success#likeCount=blog.likes
+			button.btn.btn-outline-danger.btn-sm#dislikeBtn
+				span Dislike&nbsp;
+				span.badge.badge-danger#dislikeCount=blog.dislikes
+		div.col.d-flex.flex-row-reverse
+			button.btn.btn-outline-primary.btn-sm#shareBtn Share
+
+			button.btn.btn-outline-primary.btn-sm.dropdown-toggle.margin-r-sm#commentBtn(data-toggle='collapse' href='#insightSection')
+				span Comment &nbsp;
+				span.badge.badge-primary#commentCount=blog.comments.length
+	
+	p.float-right.copyNoticeContainer
+	
+	div.collapse#insightSection
+					
+		ul.list-group.list-group-flush
+			li.list-group-item
+				div.card-card-body
+					a(href='/blog/comment/' + blog._id) Write a comment
+
+			each comment in blog.comments
+
+				li.list-group-item
+					div.card.card-body
+						div.row
+							div.col
+								p=comment.commenter.name
+								a(href=comment.commenter.url)=comment.commenter.username
+							div.col.d-flex.flex-row-reverse
+								p.text-secondary=comment.relativePostTime+' ago'
+						p.text-break=comment.body
+
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js')
+	script(src='/javascripts/blogDetail.js' defer)

@@ -1,0 +1,16 @@
+extends general
+
+block content
+
+	h1 Logout Confirmation
+
+	br
+
+	p.font-weight-bold
+		span Do you want to log out of your account (
+		span.text-primary=blogger.username
+		span )?
+
+	form(method='POST' action='')
+		button.btn.btn-primary(type='submit') Logout
+	

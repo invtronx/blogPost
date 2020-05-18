@@ -1,0 +1,37 @@
+extends intro
+
+block content
+	
+	h3 Login
+
+	form(method='POST' action='')
+
+		div.form-group
+			label(for='username') Username:
+			input#username.form-control(type='text' placeholder='funkyBlogger123' autocomplete='off' name='username')
+
+		div.form-group
+			label(for='password') Password:
+			input#password.form-control(type='password' autocomplete='off' name='password')
+
+		button.btn.btn-primary(type='submit') Login
+	
+	a(href='/signup') Don't have an account yet?
+
+	if errors
+		div.errorField
+			button.btn.btn-outline-danger.btn-sm(type='button' data-toggle='modal' data-target='#errorModal') View Errors
+			div.modal.fade#errorModal(tabindex='-1' role='dialog' aria-hidden='true')
+				div.modal-dialog.modal-dialog-centered(role='document')
+					div.modal-content
+						div.modal-header
+							h5.modal-title Errors
+						div
+						div.modal-body
+							ul.list-group.list-group-flush
+								each error in errors
+									li.list-group-item!=error.msg
+						div.modal-footer
+							button.btn.btn-primary(type='button' data-dismiss='modal') Dismiss
+
+

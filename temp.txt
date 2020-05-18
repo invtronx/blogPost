@@ -1,0 +1,5 @@
+mongodb+srv://adminronx:passronx@cluster0-tomy4.mongodb.net/blogPost?retryWrites=true&w=majority
+
+
+
+

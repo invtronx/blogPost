@@ -1,0 +1,16 @@
+extends general
+
+block content
+	
+	h3 Hall Of Bloggers
+
+	div.list-group
+
+		each blogger in bloggers
+			a.list-group-item.list-group-item-action.hallListItem(href=blogger.url)
+
+				span.text-primary=blogger.username
+				span=blogger.name
+				button.btn.btn-primary(type='button')
+					span Stars&nbsp; 
+					span.badge.badge-light=blogger.stars

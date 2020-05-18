@@ -1,0 +1,32 @@
+extends general
+
+block content
+	
+	h3.margin-l-xsm blogFeed
+	
+	div.list-group#blogFeedList
+		each blog in blogs
+			a.list-group-item.list-group-item-action(href=blog.url)
+				
+				h3=blog.title
+
+				div.row
+					div.col
+						p.font-italic.font-weight-bold.margin-none=blog.author.name
+					div.col.text-right
+						p.text-secondary=blog.relativePostTime + ' ago'
+
+				p.text-break=blog.body
+
+				div.d-flex.flex-row.justify-content-start
+					button.btn.btn-success.btn-sm.margin-r-sm#likeBtn
+						span Likes&nbsp; 
+						span.badge.badge-light#likeCount=blog.likes
+					button.btn.btn-danger.btn-sm#dislikeBtn
+						span Dislikes&nbsp;
+						span.badge.badge-light#dislikeCount=blog.dislikes
+
+				small.float-right Preview
+
+			br
+
