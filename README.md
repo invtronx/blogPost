@@ -22,7 +22,7 @@ Open [localhost:3000](http://localhost:3000) to view it in the browser.
 ## Bugs
 
 Known bugs include
-- Users being able to like, dislike or star users indefinitely as long as the page is refreshed between intervals of such consecutive actions.
+- Users are able to like, dislike or star users indefinitely as long as the page is refreshed between intervals of such consecutive actions.
 
 ## Live Code
 
